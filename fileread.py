@@ -1,7 +1,9 @@
 import os
 def fileread(file):
-#    open(file, 'r') as f:
-    read_data = file.read()
-    return read_data
+    f = open(file, 'r')
+    return f.read()
 
-print fileread("test.py")
+def filereadline(file):
+    f = open(file, 'r')
+    return f.readline()
+
