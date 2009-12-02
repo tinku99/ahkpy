@@ -24,3 +24,7 @@ if __name__ == "__main__":
     print strlen("hello")
     print stringsplit("hello", "e")
     print regexmatch("  #hello #there", "\s*(#\w+)\s")
+
+
+
+
