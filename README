@@ -1,0 +1,5 @@
+Complementary implementations of com clients and servers in autohotkey and python.
+To test, run the ahkside.ahk and pyexample.py scripts. 
+To use, just generate new guid's and appid's for the respective python and autohotkey scripts.
+
+see: http://www.autohotkey.com/forum/viewtopic.php?p=414911#414911
