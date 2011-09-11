@@ -3,6 +3,9 @@ CLSID_ThisScript := "{38A3EB13-D0C4-478b-9720-4D0B2D361DB9}"
 APPID_ThisScript := "ahk.Utility"
 funcs := ["aRegisterIDs", "aGetObject", "aCallFunc"]
 server := ahkComServer(CLSID_ThisScript, APPID_ThisScript, funcs)	
+pythonAppid := "Python.Example"
+py := ComObjActive(pythonAppid)
+py.write("hello")
 return
 
 f2::

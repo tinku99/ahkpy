@@ -1,4 +1,7 @@
-
+clsid = %1%
+appid = %2%
+RegisterIDs(CLSID, APPID)
+return
 ;; RegisterIDs(CLSID, APPID)
 RegisterIDs(CLSID, APPID)
 {

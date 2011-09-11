@@ -21,7 +21,4 @@ class PyExample(PComServer):
 clsid = "{55C2F76F-5136-4614-A397-12214CC011E5}"
 appid = "Python.Example"
 p = PyExample(clsid, appid)
-p.start()
-ahk = p.register("ahk.Utility")
-
     

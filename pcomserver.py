@@ -4,7 +4,7 @@ import time, datetime
 from win32com.server.util import wrap, unwrap
 from win32com.server.dispatcher import DefaultDebugDispatcher
 from ctypes import *
-import commands
+import commands, commands, subprocess
 import pythoncom
 import winerror
 from win32com.server.exception import Exception         
@@ -19,6 +19,8 @@ class PComServer:
         self.clsid = clsid
         self.ahk = 0
         self.appid = appid
+        self.start()
+        self.register()
     def start(self):
         ob = win32com.server.util.wrap(self, usePolicy=win32com.server.policy.DynamicPolicy)
         try:
@@ -28,11 +30,13 @@ class PComServer:
             handle = None    
         self.handle = handle
         return self
-    def register(self, ahkAppID):
-        ahk = win32com.client.Dispatch(ahkAppID) 
-        ahk.aRegisterIDs(self.clsid, self.appid)
-        self.ahk = ahk
-        return ahk
+    def register(self):
+#        ahk = win32com.client.Dispatch(ahkAppID) 
+#        ahk.aRegisterIDs(self.clsid, self.appid)
+#        self.ahk = ahk
+        result = subprocess.call(['lib\\registerids.exe' , self.clsid , self.appid])
+        print str(result) + "\nregistered " + self.clsid + "\n" + self.appid
+        return 1
     def __del__(self):
         pythoncom.RevokeActiveObject(self.handle)
     def _dynamic_(self, name, lcid, wFlags, args):
